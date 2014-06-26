@@ -27,6 +27,7 @@
 //
 // You can require javascript files here. A good place to start is by requiring your application.js.
 //= require application
+//= require support/testing_helpers
 
 var d = document;
 d.write('<div id="ember-testing-container"><div id="ember-testing"></div></div>');

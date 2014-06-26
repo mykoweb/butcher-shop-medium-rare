@@ -5,17 +5,9 @@ module('Routing specs', {
 });
 
 test('root route', function () {
-  visit('/');
-  andThen(function () {
-    var current_route = ButcherShop.__container__.lookup('controller:application').currentRouteName;
-    equal(current_route, 'index', 'Expected index got:' + current_route);
-  });
+  routesTo('/', 'index');
 });
 
 test('animals route', function () {
-  visit('/animals');
-  andThen(function () {
-    var current_route = ButcherShop.__container__.lookup('controller:application').currentRouteName;
-    equal(current_route, 'animals.index', 'Expected animals.index got:' + current_route);
-  });
+  routesTo('/animals', 'animals.index');
 });
