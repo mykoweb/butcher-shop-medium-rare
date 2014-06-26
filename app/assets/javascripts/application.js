@@ -11,4 +11,14 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require_self
+//= require ./butcher_shop
+
+// for more details see: http://emberjs.com/guides/application/
+ButcherShop = Ember.Application.create();
+
 //= require_tree .

@@ -1,4 +1,7 @@
 ButcherShop::Application.routes.draw do
+  root to: 'assets#index'
+  get 'assets/index'
+
   resources :users, :except => [:new, :edit]
 
   resources :animals, :except => [:new, :edit] do
