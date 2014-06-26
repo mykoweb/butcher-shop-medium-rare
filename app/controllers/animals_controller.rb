@@ -1,6 +1,8 @@
 class AnimalsController < ApplicationController
   respond_to :json
 
+  before_filter :find_animal, :except => [:index, :create]
+
   def index
     @animals = Animal.all
     respond_with @animals
@@ -20,7 +22,7 @@ class AnimalsController < ApplicationController
     respond_with @animal
   end
 
-  def delete
+  def destroy
     @animal.destroy
     head 204
   end
@@ -28,5 +30,11 @@ class AnimalsController < ApplicationController
   protected
     def animal_params
       params.require(:animal).permit(:name)
+    end
+
+    def find_animal
+      @animal = Animal.find params[:id]
+    rescue ActiveRecord::RecordNotFound
+      head 404
     end
 end

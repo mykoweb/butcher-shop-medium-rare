@@ -10,6 +10,7 @@ gem 'strong_parameters'
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'rspec-its'
   gem 'fuubar'
   gem 'nyan-cat-formatter'
 end
@@ -17,4 +18,5 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end

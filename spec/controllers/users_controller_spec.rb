@@ -1,12 +1,13 @@
 require 'spec_helper'
 
-describe UsersController do
+describe UsersController, type: :controller do
   let(:user_attrs)     { { :format => :json, :user => attributes_for(:user) } }
   let(:bad_user_attrs) { { :format => :json, :user => { :first_name => "Test" } } }
-  subject              { response }
 
   describe "GET 'index'" do
     before(:each) { get :index, :format => :json }
+
+    subject      { response }
 
     its(:body)   { should_not be_empty }
     its(:status) { should be 200}
@@ -14,6 +15,8 @@ describe UsersController do
 
   describe "POST 'create'" do
     before(:each) { post :create, user_attrs }
+
+    subject      { response }
 
     its(:body)    { should_not be_empty }
     its(:status)  { should be 201 }
@@ -34,6 +37,8 @@ describe UsersController do
     describe "GET 'show'" do
       before(:each) { get :show, :id => user.id, :format => :json }
 
+      subject       { response }
+
       its(:body)    { should_not be_empty }
       its(:status)  { should be 200}
 
@@ -48,11 +53,13 @@ describe UsersController do
     describe "PUT 'update'" do
       before(:each) { put :update, user_attrs }
 
+      subject       { response }
+
       its("body.strip") { should be_empty }
       its(:status)      { should be 204 }
 
       it "updates the user" do
-        User.find(user.id).first_name.should eq user_attrs[:user][:first_name]
+        expect(User.find(user.id).first_name).to eq user_attrs[:user][:first_name]
       end
 
       context "with bad params" do
@@ -65,6 +72,8 @@ describe UsersController do
 
     describe "DELETE 'destroy'" do
       before(:each) { delete :destroy, :id => user.id, :format => :json }
+
+      subject       { response }
 
       its("body.strip") { should be_empty }
       its(:status)      { should be 204 }

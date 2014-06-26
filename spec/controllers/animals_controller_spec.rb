@@ -1,12 +1,13 @@
 require 'spec_helper'
 
-describe AnimalsController do
+describe AnimalsController, type: :controller do
   let(:animal_attrs)     { { :format => :json, :animal => attributes_for(:animal) } }
   let(:bad_animal_attrs) { { :format => :json, :animal => { :name => nil } } }
-  subject                { response }
 
   describe "GET 'index'" do
     before(:each) { get :index, :format => :json }
+
+    subject      { response }
 
     its(:body)   { should_not be_empty }
     its(:status) { should be 200}
@@ -14,6 +15,8 @@ describe AnimalsController do
 
   describe "POST 'create'" do
     before(:each) { post :create, animal_attrs }
+
+    subject       { response }
 
     its(:body)    { should_not be_empty }
     its(:status)  { should be 201 }
@@ -34,6 +37,8 @@ describe AnimalsController do
     describe "GET 'show'" do
       before(:each) { get :show, :id => animal.id, :format => :json }
 
+      subject       { response }
+
       its(:body)    { should_not be_empty }
       its(:status)  { should be 200}
 
@@ -48,11 +53,13 @@ describe AnimalsController do
     describe "PUT 'update'" do
       before(:each) { put :update, animal_attrs }
 
+      subject       { response }
+
       its("body.strip") { should be_empty }
       its(:status)      { should be 204 }
 
       it "updates the animal" do
-        Animal.find(animal.id).name.should eq animal_attrs[:animal][:name]
+        expect(Animal.find(animal.id).name).to eq animal_attrs[:animal][:name]
       end
 
       context "with bad params" do
@@ -65,6 +72,8 @@ describe AnimalsController do
 
     describe "DELETE 'destroy'" do
       before(:each) { delete :destroy, :id => animal.id, :format => :json }
+
+      subject       { response }
 
       its("body.strip") { should be_empty }
       its(:status)      { should be 204 }
