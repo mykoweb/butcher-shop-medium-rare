@@ -1,4 +1,4 @@
-ButcherShop.Store = DS.Store.extend({
+ButcherShop.ApplicationStore = DS.Store.extend({
 
 });
 

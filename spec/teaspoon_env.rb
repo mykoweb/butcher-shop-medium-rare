@@ -36,6 +36,8 @@ Teaspoon.setup do |config|
   #config.branches_coverage_threshold   = 50
   #config.lines_coverage_threshold      = 50
   config.suite do |suite|
+    suite.javascripts = ["teaspoon/qunit"]
+    suite.helper = "spec_helper"
     suite.stylesheets = ["teaspoon", "teaspoon_custom"]
   end
 end
