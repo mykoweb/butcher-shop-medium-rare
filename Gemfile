@@ -8,6 +8,8 @@ gem 'sqlite3'
 gem 'active_model_serializers'
 gem 'strong_parameters'
 
+gem 'jquery-rails', '~> 3.0.0'
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'rspec-its'
