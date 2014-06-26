@@ -19,6 +19,7 @@ group :test, :development do
   gem 'fuubar'
   gem 'nyan-cat-formatter'
   gem 'debugger'
+  gem 'teaspoon', '0.7.9'
 end
 
 group :test do
