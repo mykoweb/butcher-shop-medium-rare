@@ -1,3 +1,4 @@
+require 'spec_helper'
 
 describe Animal do
   it { should be_a_kind_of ActiveModel::ForbiddenAttributesProtection }

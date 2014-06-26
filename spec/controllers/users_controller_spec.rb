@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UsersController, type: :controller do
+describe UsersController do
   let(:user_attrs)     { { :format => :json, :user => attributes_for(:user) } }
   let(:bad_user_attrs) { { :format => :json, :user => { :first_name => "Test" } } }
 

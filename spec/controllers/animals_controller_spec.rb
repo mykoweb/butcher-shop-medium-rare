@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AnimalsController, type: :controller do
+describe AnimalsController do
   let(:animal_attrs)     { { :format => :json, :animal => attributes_for(:animal) } }
   let(:bad_animal_attrs) { { :format => :json, :animal => { :name => nil } } }
 

@@ -13,6 +13,7 @@ group :test, :development do
   gem 'rspec-its'
   gem 'fuubar'
   gem 'nyan-cat-formatter'
+  gem 'debugger'
 end
 
 group :test do

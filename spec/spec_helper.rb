@@ -12,6 +12,10 @@ RSpec.configure do |config|
 
   config.use_transactional_fixtures = false
   config.infer_base_class_for_anonymous_controllers = false
+
+  # For Rspec 3.x: The Spec type is no longer inferred from file location by default.
+  config.infer_spec_type_from_file_location!
+
   config.filter_run_excluding :broken => true
 
   # Run specs in random order to surface order dependencies. If you find an
