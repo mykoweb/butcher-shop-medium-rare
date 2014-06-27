@@ -44,8 +44,12 @@ QUnit.testStart = function () {
 ButcherShop.ApplicationAdapter = DS.FixtureAdapter;
 var resetFixtures = function () {
   ButcherShop.Animal.FIXTURES = [
-    { id: 1, name: 'cow' },
+    { id: 1, name: 'cow', primalCuts: [1,2] },
     { id: 2, name: 'chicken' }
+  ];
+  ButcherShop.PrimalCut.FIXTURES = [
+    { id: 1, name: 'Hind leg', animal: 1 },
+    { id: 2, name: 'Fore leg', animal: 1 }
   ];
 };
 resetFixtures();
