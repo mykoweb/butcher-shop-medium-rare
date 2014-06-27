@@ -20,3 +20,12 @@ test('Renders animals', function () {
     equal(animals_length, 2, "Expected animals to contain 2 items, got: " + animals_length);
   });
 });
+
+test('Renders one animal', function () {
+  visit('/animals/1');
+  andThen(function () {
+    var animal = find('#animal h1').text();
+    var expected_result = 'Details for Animal 1';
+    equal(animal, expected_result, 'Expected: ' + expected_result + ' got: ' + animal);
+  });
+});

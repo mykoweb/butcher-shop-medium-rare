@@ -2,5 +2,6 @@
 
 ButcherShop.Router.map(function() {
   this.resource('animals', function () {
+    this.route('show', { path: '/:animal_id' });
   });
 });
