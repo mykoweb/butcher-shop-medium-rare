@@ -44,3 +44,16 @@ test('Show input for new animal', function () {
     ok(name_field == 1, 'Name field not found');
   });
 });
+
+test('Adding a new animal', function () {
+  visit('/animals').click('#add_new_animal');
+  fillIn('#new_name', 'Tyrannosaurus');
+  click('#save_new_animal');
+  andThen(function () {
+    var name = find('.animals_list:contains("Tyrannosaurus")').length;
+    var add_new_animal_button = find('#add_new_animal').length;
+
+    ok(name == 1, "Name was not saved");
+    ok(add_new_animal_button == 1, "Have not transitioned back to original state");
+  });
+});
