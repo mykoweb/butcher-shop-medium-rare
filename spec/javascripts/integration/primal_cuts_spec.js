@@ -34,3 +34,16 @@ test('Show input for new primal cut', function () {
     ok(name_field == 1, 'Name field not found');
   });
 });
+
+test('Adding a new primal cut', function () {
+  visit('/animals/1').click('#add_new_primal_cut');
+  fillIn('#new_primal_cut_name', 'chest');
+  click('#save_new_primal_cut');
+  andThen(function () {
+    var name = find('.primal_cuts_list:contains("chest")').length;
+    var add_new_primal_cut_button = find('#add_new_primal_cut').length;
+
+    ok(name == 1, "Name was not saved");
+    ok(add_new_primal_cut_button == 1, "Have not transitioned back to original state");
+  });
+});

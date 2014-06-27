@@ -3,10 +3,14 @@
   <ul>
     <li>Name: {{name}}</li>
   </ul>
-  <label for"new_primal_cut_name">Name</label>
-  {{input type="text" value=controller.new_name id="new_primal_cut_name"}}
-  <button id="add_new_primal_cut" {{action 'addNewPrimalCut'}}>Add new primal cut</button>
-  <ul>
+  {{#if addingNewPrimalCut}}
+    <label for"new_primal_cut_name">Name</label>
+    {{input type="text" value=controller.new_name id="new_primal_cut_name"}}
+    <button id="save_new_primal_cut" {{action 'saveNewPrimalCut'}}>Save new primal cut</button>
+  {{else}}
+    <button id="add_new_primal_cut" {{action 'addNewPrimalCut'}}>Add new primal cut</button>
+  {{/if}}
+  <ul class="primal_cuts_list">
     {{#each primalCuts}}
       <li class="primal_cut_name">{{#link-to 'primal_cuts.show' this}}{{name}}{{/link-to}}</li>
     {{/each}}

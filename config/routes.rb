@@ -9,7 +9,7 @@ ButcherShop::Application.routes.draw do
     resources :cuts,        :only => [:index, :create]
   end
 
-  resources :primal_cuts, :only => [:show, :update, :destroy] do
+  resources :primal_cuts, :only => [:show, :update, :destroy, :create] do
     resources :cuts, :only => [:index, :create]
   end
 

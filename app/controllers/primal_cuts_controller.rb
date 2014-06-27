@@ -30,7 +30,8 @@ class PrimalCutsController < ApplicationController
 
   protected
     def find_animal
-      @animal = Animal.find params[:animal_id]
+      animal_id = params[:animal_id] || params[:primal_cut][:animal_id]
+      @animal = Animal.find animal_id
     rescue ActiveRecord::RecordNotFound
       head 404
     end
@@ -42,6 +43,6 @@ class PrimalCutsController < ApplicationController
     end
 
     def primal_cut_params
-      params.require(:primal_cut).permit(:name)
+      params.require(:primal_cut).permit(:name, :animal_id)
     end
 end

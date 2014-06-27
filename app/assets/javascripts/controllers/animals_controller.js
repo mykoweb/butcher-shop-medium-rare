@@ -28,7 +28,21 @@ ButcherShop.AnimalsIndexController = Ember.ArrayController.extend({
 ButcherShop.AnimalsShowController = Ember.ObjectController.extend({
   actions: {
     addNewPrimalCut: function () {
-      this.toggleProperty('addingNewAnimal');
+      this.toggleProperty('addingNewPrimalCut');
+    },
+    saveNewPrimalCut: function () {
+      var self = this;
+      var new_name       = self.get('new_name');
+      var animal_id      = self.get('id');
+      var new_primal_cut = self.store.createRecord('primal_cut', { name: new_name, animal_id: animal_id });
+      new_primal_cut.save().then(
+        function () {
+          self.get('primalCuts').pushObject(new_primal_cut);
+          self.set('new_name', '');
+          self.toggleProperty('addingNewPrimalCut');
+        },
+        function () { alert('Unable to save record'); }
+      );
     }
   }
 });
