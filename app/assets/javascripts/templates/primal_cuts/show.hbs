@@ -3,9 +3,20 @@
   <ul>
     <li>Name: {{name}}</li>
   </ul>
-  <ul>
+  {{#if addingNewCut}}
+    <label for="new_cut_name">Name</label>
+    {{input type="text" value=controller.new_name id="new_cut_name"}}
+    <button id="save_new_cut" {{action 'saveNewCut'}}>Save new cut</button>
+    <button id="cancel_new_cut" {{action 'cancelNewCut'}}>Cancel new cut</button>
+  {{else}}
+    <button id="add_new_cut" {{action 'addNewCut'}}>Add new cut</button>
+  {{/if}}
+  <ul class="cuts_list">
     {{#each cuts}}
-      <li class="cut_name">{{name}}</li>
+      <li>
+        {{#link-to 'cuts.show' this class="cut_name"}}{{name}}{{/link-to}}
+        <button {{action 'deleteCut' this}} class="delete_button">Delete cut</button>
+      </li>
     {{/each}}
   </ul>
 </div>

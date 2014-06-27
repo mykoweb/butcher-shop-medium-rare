@@ -7,4 +7,7 @@ ButcherShop.Router.map(function() {
   this.resource('primal_cuts', function () {
     this.route('show', { path: '/:primal_cut_id' });
   });
+  this.resource('cuts', function () {
+    this.route('show', { path: '/:cut_id' });
+  });
 });

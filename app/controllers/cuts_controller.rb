@@ -30,7 +30,11 @@ class CutsController < ApplicationController
 
   protected
     def find_animal_or_primal_cut
-      @parent = params[:animal_id].present? ? Animal.find(params[:animal_id]) : PrimalCut.find(params[:primal_cut_id])
+      if params[:cut] && params[:cut][:primal_cut_id] # JSON from Ember
+        @parent = PrimalCut.find(params[:cut][:primal_cut_id])
+      else # More generic JSON
+        @parent = params[:animal_id].present? ? Animal.find(params[:animal_id]) : PrimalCut.find(params[:primal_cut_id])
+      end
     rescue ActiveRecord::RecordNotFound
       head 404
     end
@@ -42,6 +46,6 @@ class CutsController < ApplicationController
     end
 
     def cut_params
-      params.require(:cut).permit(:name)
+      params.require(:cut).permit(:name, :primal_cut_id, :animal_id)
     end
 end
