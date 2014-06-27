@@ -1,8 +1,6 @@
 module('Animals integration', {
   setup: function () {},
-  teardown: function () {
-    ButcherShop.reset();
-  }
+  teardown: function () {}
 });
 
 test('Animals index page', function () {

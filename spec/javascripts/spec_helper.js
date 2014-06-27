@@ -36,6 +36,10 @@ ButcherShop.rootElement = "#ember-testing";
 ButcherShop.setupForTesting();
 ButcherShop.injectTestHelpers();
 
+QUnit.testStart = function () {
+  ButcherShop.reset();
+};
+
 // FIXTURES
 ButcherShop.ApplicationAdapter = DS.FixtureAdapter;
 ButcherShop.Animal.FIXTURES = [

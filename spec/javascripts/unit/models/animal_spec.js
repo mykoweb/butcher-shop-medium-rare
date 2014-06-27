@@ -1,8 +1,6 @@
 module('Animal Model', {
   setup: function () {},
-  teardown: function () {
-    ButcherShop.reset();
-  }
+  teardown: function () {}
 });
 
 test('attributes', function () {

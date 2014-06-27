@@ -1,7 +1,5 @@
 module('Routing specs', {
-  setup: function () {
-    ButcherShop.reset();
-  }
+  setup: function () {}
 });
 
 test('root route', function () {
