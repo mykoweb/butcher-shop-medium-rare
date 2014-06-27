@@ -47,3 +47,25 @@ test('Adding a new primal cut', function () {
     ok(add_new_primal_cut_button == 1, "Have not transitioned back to original state");
   });
 });
+
+test('Canceling creating a new primal cut', function () {
+  visit('/animals/1').click('#add_new_primal_cut');
+  andThen(function () {
+    var name_field = find('#new_primal_cut_name').length;
+    ok(name_field == 1, 'Name field not found');
+    click('#cancel_new_primal_cut');
+    andThen(function () {
+      var add_new_primal_cut_button = find('#add_new_primal_cut').length;
+      ok(add_new_primal_cut_button == 1, "Have not transitioned back to original state");
+    });
+  });
+});
+
+// TODO: Get the following test to work
+// test('Deleting a primal cut', function () {
+  // visit('/animals/1').click('.primal_cuts_list li:first .delete_button');
+  // andThen(function () {
+    // var primal_cuts = find('.primal_cuts_list li').length;
+    // ok(primal_cuts == 1, "Expected 1 primal cut, got: " + primal_cuts);
+  // });
+// });

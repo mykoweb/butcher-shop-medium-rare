@@ -43,6 +43,13 @@ ButcherShop.AnimalsShowController = Ember.ObjectController.extend({
         },
         function () { alert('Unable to save record'); }
       );
+    },
+    cancelNewPrimalCut: function () {
+      this.set('new_name', '');
+      this.toggleProperty('addingNewPrimalCut');
+    },
+    deletePrimalCut: function (primalCut) {
+      primalCut.destroyRecord();
     }
   }
 });
