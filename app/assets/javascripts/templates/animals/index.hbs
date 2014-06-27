@@ -1,4 +1,10 @@
 <h1 class="animals_heading">Animals Index Page</h1>
+{{#if addingNewAnimal}}
+  <label for="new_name">Name</label>
+  {{input type="text" value=controller.new_name id="new_name"}}
+{{else}}
+  <button id="add_new_animal" {{action 'addNewAnimal'}}>Add new animal</button>
+{{/if}}
 <ul class="animals_list">
   {{#each}}
   <li>{{#link-to 'animals.show' this}}{{name}}{{/link-to}}</li>

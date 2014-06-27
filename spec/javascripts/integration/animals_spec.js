@@ -36,3 +36,11 @@ test('Visiting animal via index page', function () {
     equal(animal, expected_result, 'Expected: ' + expected_result + ' got: ' + animal);
   });
 });
+
+test('Show input for new animal', function () {
+  visit('/animals').click('#add_new_animal');
+  andThen(function () {
+    var name_field = find('#new_name').length;
+    ok(name_field == 1, 'Name field not found');
+  });
+});
