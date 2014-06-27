@@ -27,3 +27,12 @@ test('Renders one animal', function () {
     equal(animal, expected_result, 'Expected: ' + expected_result + ' got: ' + animal);
   });
 });
+
+test('Visiting animal via index page', function () {
+  visit('/animals').click('ul li:last a');
+  andThen(function () {
+    var animal = find("#animal h1").text();
+    var expected_result = "Details for Animal 2";
+    equal(animal, expected_result, 'Expected: ' + expected_result + ' got: ' + animal);
+  });
+});
