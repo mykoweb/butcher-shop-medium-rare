@@ -57,3 +57,16 @@ test('Adding a new animal', function () {
     ok(add_new_animal_button == 1, "Have not transitioned back to original state");
   });
 });
+
+test('Canceling creating of new animal', function () {
+  visit('/animals').click('#add_new_animal');
+  andThen(function () {
+    var name_field = find('#new_name').length;
+    ok(name_field == 1, 'Name field not found');
+    click('#cancel_new_animal');
+    andThen(function () {
+      var add_new_animal_button = find('#add_new_animal').length;
+      ok(add_new_animal_button == 1, "Have not transitioned back to original state");
+    });
+  });
+});

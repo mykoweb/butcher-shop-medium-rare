@@ -2,7 +2,8 @@
 {{#if addingNewAnimal}}
   <label for="new_name">Name</label>
   {{input type="text" value=controller.new_name id="new_name"}}
-  <button id="save_new_animal" {{action 'saveNewAnimal'}}>Save new Animal</button>
+  <button id="save_new_animal" {{action 'saveNewAnimal'}}>Save new animal</button>
+  <button id="cancel_new_animal" {{action 'cancelNewAnimal'}}>Cancel new animal</button>
 {{else}}
   <button id="add_new_animal" {{action 'addNewAnimal'}}>Add new animal</button>
 {{/if}}

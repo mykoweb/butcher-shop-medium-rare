@@ -4,9 +4,9 @@ ButcherShop.AnimalsIndexController = Ember.ArrayController.extend({
       this.toggleProperty('addingNewAnimal');
     },
     saveNewAnimal: function () {
-      var new_name   = this.get('new_name');
-      var new_animal = this.store.createRecord('animal', { name: new_name });
       var self = this;
+      var new_name   = self.get('new_name');
+      var new_animal = self.store.createRecord('animal', { name: new_name });
       new_animal.save().then(
         function () {
           self.set('new_name', '');
@@ -14,6 +14,10 @@ ButcherShop.AnimalsIndexController = Ember.ArrayController.extend({
         },
         function () { alert('Unable to save record'); }
       );
+    },
+    cancelNewAnimal: function () {
+      this.set('new_name', '');
+      this.toggleProperty('addingNewAnimal');
     }
   }
 });
