@@ -9,6 +9,9 @@
 {{/if}}
 <ul class="animals_list">
   {{#each}}
-    <li>{{#link-to 'animals.show' this}}{{name}}{{/link-to}}</li>
+    <li>
+      {{#link-to 'animals.show' this}}{{name}}{{/link-to}}
+      <button {{action 'deleteAnimal' this}} class="delete_button">Delete animal</button>
+    </li>
   {{/each}}
 </ul>

@@ -18,6 +18,9 @@ ButcherShop.AnimalsIndexController = Ember.ArrayController.extend({
     cancelNewAnimal: function () {
       this.set('new_name', '');
       this.toggleProperty('addingNewAnimal');
+    },
+    deleteAnimal: function (animal) {
+      animal.destroyRecord();
     }
   }
 });

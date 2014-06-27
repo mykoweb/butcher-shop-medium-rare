@@ -1,6 +1,6 @@
 module('Animals integration', {
   setup: function () {},
-  teardown: function () {}
+  teardown: function () { resetFixtures(); }
 });
 
 test('Animals index page', function () {
@@ -68,5 +68,13 @@ test('Canceling creating of new animal', function () {
       var add_new_animal_button = find('#add_new_animal').length;
       ok(add_new_animal_button == 1, "Have not transitioned back to original state");
     });
+  });
+});
+
+test('Deleting an animal', function () {
+  visit('/animals').click('.animals_list li:first .delete_button');
+  andThen(function () {
+    var animals = find('ul li').length;
+    ok(animals == 1, "Expected 1 animal, got: " + animals);
   });
 });
