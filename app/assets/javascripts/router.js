@@ -4,4 +4,7 @@ ButcherShop.Router.map(function() {
   this.resource('animals', function () {
     this.route('show', { path: '/:animal_id' });
   });
+  this.resource('primal_cuts', function () {
+    this.route('show', { path: '/:primal_cut_id' });
+  });
 });

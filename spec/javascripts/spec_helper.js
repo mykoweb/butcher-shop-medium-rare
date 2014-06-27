@@ -48,8 +48,12 @@ var resetFixtures = function () {
     { id: 2, name: 'chicken' }
   ];
   ButcherShop.PrimalCut.FIXTURES = [
-    { id: 1, name: 'Hind leg', animal: 1 },
+    { id: 1, name: 'Hind leg', animal: 1, cuts: [1,2] },
     { id: 2, name: 'Fore leg', animal: 1 }
+  ];
+  ButcherShop.Cut.FIXTURES = [
+    { id: 1, name: 'Rib eye', animal: 1, primalCut: 1 },
+    { id: 2, name: 'Pot roast', animal: 1, primalCut: 1 }
   ];
 };
 resetFixtures();

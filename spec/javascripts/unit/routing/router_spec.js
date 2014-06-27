@@ -13,3 +13,7 @@ test('animals route', function () {
 test('individual animal', function () {
   routesTo('/animals/1', 'animals.show');
 });
+
+test('individual primal cut', function () {
+  routesTo('/primal_cuts/1', 'primal_cuts.show');
+});
