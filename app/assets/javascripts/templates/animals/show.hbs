@@ -3,9 +3,12 @@
   <ul>
     <li>Name: {{name}}</li>
   </ul>
+  <label for"new_primal_cut_name">Name</label>
+  {{input type="text" value=controller.new_name id="new_primal_cut_name"}}
+  <button id="add_new_primal_cut" {{action 'addNewPrimalCut'}}>Add new primal cut</button>
   <ul>
     {{#each primalCuts}}
-      <li class="primal_cut_name">{{name}}</li>
+      <li class="primal_cut_name">{{#link-to 'primal_cuts.show' this}}{{name}}{{/link-to}}</li>
     {{/each}}
   </ul>
 </div>

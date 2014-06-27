@@ -24,3 +24,11 @@ ButcherShop.AnimalsIndexController = Ember.ArrayController.extend({
     }
   }
 });
+
+ButcherShop.AnimalsShowController = Ember.ObjectController.extend({
+  actions: {
+    addNewPrimalCut: function () {
+      this.toggleProperty('addingNewAnimal');
+    }
+  }
+});
