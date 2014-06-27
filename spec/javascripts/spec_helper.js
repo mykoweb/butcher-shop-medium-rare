@@ -35,3 +35,10 @@ d.write('<div id="ember-testing-container"><div id="ember-testing"></div></div>'
 ButcherShop.rootElement = "#ember-testing";
 ButcherShop.setupForTesting();
 ButcherShop.injectTestHelpers();
+
+// FIXTURES
+ButcherShop.ApplicationAdapter = DS.FixtureAdapter;
+ButcherShop.Animal.FIXTURES = [
+  { id: 1, name: 'cow' },
+  { id: 2, name: 'chicken' }
+];

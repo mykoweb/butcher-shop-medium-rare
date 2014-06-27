@@ -1,11 +1,5 @@
 module('Animals integration', {
-  setup: function () {
-    ButcherShop.ApplicationAdapter = DS.FixtureAdapter;
-    ButcherShop.Animal.FIXTURES = [
-      { id: 1, name: 'cow' },
-      { id: 2, name: 'chicken' }
-    ]
-  },
+  setup: function () {},
   teardown: function () {
     ButcherShop.reset();
   }
