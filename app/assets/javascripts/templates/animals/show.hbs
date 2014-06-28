@@ -17,6 +17,26 @@
   {{else}}
     <button class="btn btn-primary" id="add_new_primal_cut" {{action 'addNewPrimalCut'}}>Add new primal cut</button>
   {{/if}}
+
+  <h2>List of Cuts for {{name}}</h2>
+  <table class="cuts_list table table-striped"><tbody>
+    {{#each cuts}}
+      <tr>
+        <td>{{#link-to 'cuts.show' this class="cut_name"}}{{name}}{{/link-to}}</td>
+        <td><button {{action 'deleteCut' this}} class="btn btn-warning delete_button">Delete cut</button></td>
+      </tr>
+    {{/each}}
+  </tbody></table>
+  <div class="add_buttons">
+  {{#if addingNewCut}}
+    <label for"new_cut_name">Name</label>
+    {{input type="text" value=controller.new_name id="new_cut_name"}}
+    <button class="btn btn-primary" id="save_new_cut" {{action 'saveNewCut'}}>Save new cut</button>
+    <button class="btn" id="cancel_new_cut" {{action 'cancelNewCut'}}>Cancel</button>
+  {{else}}
+    <button class="btn btn-primary" id="add_new_cut" {{action 'addNewCut'}}>Add new cut</button>
+  {{/if}}
+
 </div>
   <div class="back_to_link">{{#link-to 'animals.index'}}Back to animal index{{/link-to}}</div>
 </div>

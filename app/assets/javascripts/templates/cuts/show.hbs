@@ -1,4 +1,8 @@
 <div id="cut">
   <h2>We see you like the {{name}} cut!</h2>
-  {{#link-to 'primal_cuts.show' primal_cut_id class="back_to_pcut back_to_link"}}Back to primal cut{{/link-to}}
+  {{#if primal_cut_id}}
+    {{#link-to 'primal_cuts.show' primal_cut_id class="back_to_pcut back_to_link"}}Back to primal cut{{/link-to}}
+  {{else}}
+    {{#link-to 'animals.show' animal_id class="back_to_pcut back_to_link"}}Back to meat{{/link-to}}
+  {{/if}}
 </div>

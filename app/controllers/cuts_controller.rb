@@ -30,8 +30,10 @@ class CutsController < ApplicationController
 
   protected
     def find_animal_or_primal_cut
-      if params[:cut] && params[:cut][:primal_cut_id] # JSON from Ember
+      if params[:cut] && params[:cut][:primal_cut_id] # JSON from Ember for Primal Cut Parent
         @parent = PrimalCut.find(params[:cut][:primal_cut_id])
+      elsif params[:cut] && params[:cut][:animal_id] # JSON from Ember for Animal Parent
+        @parent = Animal.find(params[:cut][:animal_id])
       else # More generic JSON
         @parent = params[:animal_id].present? ? Animal.find(params[:animal_id]) : PrimalCut.find(params[:primal_cut_id])
       end

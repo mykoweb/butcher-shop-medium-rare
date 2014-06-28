@@ -22,7 +22,7 @@ test('Renders animals', function () {
 test('Renders one animal', function () {
   visit('/animals/1');
   andThen(function () {
-    var animal = find('#animal h2').text();
+    var animal = find('#animal h2:first').text();
     var expected_result = 'List of Primal Cuts for cow';
     equal(animal, expected_result, 'Expected: ' + expected_result + ' got: ' + animal);
   });
@@ -31,8 +31,8 @@ test('Renders one animal', function () {
 test('Visiting animal via index page', function () {
   visit('/animals').click('table tr:last a');
   andThen(function () {
-    var animal = find("#animal h2").text();
-    var expected_result = "List of Primal Cuts for chicken";
+    var animal = find("#animal h2:last").text();
+    var expected_result = "List of Cuts for chicken";
     equal(animal, expected_result, 'Expected: ' + expected_result + ' got: ' + animal);
   });
 });
