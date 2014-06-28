@@ -1,8 +1,13 @@
 class FavoritesController < ApplicationController
   respond_to :json
 
-  before_filter :find_user, only:   [:show, :create]
-  before_filter :find_fav,  except: [:show, :create]
+  before_filter :find_user, only:   [:index, :show, :create]
+  before_filter :find_fav,  except: [:index, :show, :create]
+
+  def index
+    @favs = @user.favorites.all
+    respond_with @favs
+  end
 
   def create
     @fav = @user.favorites.create(fav_params)

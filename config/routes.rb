@@ -16,7 +16,7 @@ ButcherShop::Application.routes.draw do
   resources :cuts, :only => [:show, :update, :destroy, :create]
 
   resources :users, only: [:show] do
-    resources :favorites, only: [:show, :create]
+    resources :favorites, only: [:index, :create]
   end
 
   resources :favorites, only: [:show, :update, :destroy]
