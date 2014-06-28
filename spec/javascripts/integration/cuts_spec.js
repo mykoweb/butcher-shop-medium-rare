@@ -27,6 +27,15 @@ test('Visiting cut via primal cut page', function () {
   });
 });
 
+test('Should have a link back to primal cut', function () {
+  visit('/primal_cuts/1').click('ul li:last a');
+  andThen(function () {
+    var back_link = find('a.back_to_pcut').text();
+    var expected_result = "Back to primal cut";
+    equal(back_link, expected_result, 'Expected: ' + expected_result + ' got: ' + back_link);
+  });
+});
+
 test('Show input for new cut', function () {
   visit('/primal_cuts/1').click('#add_new_cut');
   andThen(function () {

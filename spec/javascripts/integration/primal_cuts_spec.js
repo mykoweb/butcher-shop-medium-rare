@@ -27,6 +27,15 @@ test('Visiting primal cut via animal page', function () {
   });
 });
 
+test('Should have a link back to animal', function () {
+  visit('/animals/1').click('ul li:last a');
+  andThen(function () {
+    var back_link = find('a.back_to_animal').text();
+    var expected_result = "Back to animal";
+    equal(back_link, expected_result, 'Expected: ' + expected_result + ' got: ' + back_link);
+  });
+});
+
 test('Show input for new primal cut', function () {
   visit('/animals/1').click('#add_new_primal_cut');
   andThen(function () {
