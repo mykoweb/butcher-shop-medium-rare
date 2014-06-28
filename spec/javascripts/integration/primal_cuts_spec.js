@@ -12,23 +12,24 @@ test('Showing associated primal cuts', function () {
 test('Renders one primal cut', function () {
   visit('/primal_cuts/1');
   andThen(function () {
-    var pcut = find('#primal_cut h1').text();
-    var expected_result = 'Details for Primal Cut 1';
+    var pcut = find('#primal_cut h2').text();
+    var expected_result = 'List of Cuts for Primal Cut Hind leg';
     equal(pcut, expected_result, 'Expected: ' + expected_result + ' got: ' + pcut);
   });
 });
 
 test('Visiting primal cut via animal page', function () {
-  visit('/animals/1').click('ul li:last a');
+  visit('/animals/1').click('table tr:first a');
   andThen(function () {
-    var pcut = find("#primal_cut h1").text();
-    var expected_result = "Details for Primal Cut 2";
-    equal(pcut, expected_result, 'Expected: ' + expected_result + ' got: ' + pcut);
+    var add_pcut = find("#add_new_cut").length;
+    ok(add_pcut == 1, 'Add new cut button not found');
+    // var expected_result = "List of Cuts for Primal Cut Hind Leg";
+    // equal(pcut, expected_result, 'Expected: ' + expected_result + ' got: ' + pcut);
   });
 });
 
 test('Should have a link back to animal', function () {
-  visit('/animals/1').click('ul li:last a');
+  visit('/animals/1').click('table tr:last a');
   andThen(function () {
     var back_link = find('a.back_to_animal').text();
     var expected_result = "Back to animal";

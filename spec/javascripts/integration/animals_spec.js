@@ -7,14 +7,14 @@ test('Animals index page', function () {
   visit('/animals');
   andThen(function () {
     var header_text = find('.animals_heading').text();
-    equal(header_text, "Animals Index Page", 'Expected "Animals Index Page", got: ' + header_text);
+    equal(header_text, "List of Meats", 'Expected "List of Meats", got: ' + header_text);
   });
 });
 
 test('Renders animals', function () {
   visit('/animals');
   andThen(function () {
-    var animals_length = find('.animals_list li').length;
+    var animals_length = find('.animals_list tr').length;
     equal(animals_length, 2, "Expected animals to contain 2 items, got: " + animals_length);
   });
 });
@@ -22,17 +22,17 @@ test('Renders animals', function () {
 test('Renders one animal', function () {
   visit('/animals/1');
   andThen(function () {
-    var animal = find('#animal h1').text();
-    var expected_result = 'Details for Animal 1';
+    var animal = find('#animal h2').text();
+    var expected_result = 'List of Primal Cuts for cow';
     equal(animal, expected_result, 'Expected: ' + expected_result + ' got: ' + animal);
   });
 });
 
 test('Visiting animal via index page', function () {
-  visit('/animals').click('ul li:last a');
+  visit('/animals').click('table tr:last a');
   andThen(function () {
-    var animal = find("#animal h1").text();
-    var expected_result = "Details for Animal 2";
+    var animal = find("#animal h2").text();
+    var expected_result = "List of Primal Cuts for chicken";
     equal(animal, expected_result, 'Expected: ' + expected_result + ' got: ' + animal);
   });
 });
@@ -72,9 +72,9 @@ test('Canceling creating of new animal', function () {
 });
 
 test('Deleting an animal', function () {
-  visit('/animals').click('.animals_list li:first .delete_button');
+  visit('/animals').click('.animals_list tr:first .delete_button');
   andThen(function () {
-    var animals = find('ul li').length;
+    var animals = find('table tr').length;
     ok(animals == 1, "Expected 1 animal, got: " + animals);
   });
 });

@@ -1,17 +1,19 @@
-<h1 class="animals_heading">Animals Index Page</h1>
+<h2 class="animals_heading">List of Meats</h2>
+<table class="animals_list table table-striped"><tbody>
+  {{#each}}
+    <tr>
+      <td>{{#link-to 'animals.show' this}}{{name}}{{/link-to}}</td>
+      <td><button {{action 'deleteAnimal' this}} class="btn btn-warning delete_button">Delete animal</button></td>
+    </tr>
+  {{/each}}
+</tbody></table>
+<div class="add_buttons">
 {{#if addingNewAnimal}}
   <label for="new_name">Name</label>
   {{input type="text" value=controller.new_name id="new_name"}}
-  <button id="save_new_animal" {{action 'saveNewAnimal'}}>Save new animal</button>
-  <button id="cancel_new_animal" {{action 'cancelNewAnimal'}}>Cancel new animal</button>
+  <button class="btn btn-primary" id="save_new_animal" {{action 'saveNewAnimal'}}>Save new animal</button>
+  <button class="btn" id="cancel_new_animal" {{action 'cancelNewAnimal'}}>Cancel</button>
 {{else}}
-  <button id="add_new_animal" {{action 'addNewAnimal'}}>Add new animal</button>
+  <button class="btn btn-primary" id="add_new_animal" {{action 'addNewAnimal'}}>Add new animal</button>
 {{/if}}
-<ul class="animals_list">
-  {{#each}}
-    <li>
-      {{#link-to 'animals.show' this}}{{name}}{{/link-to}}
-      <button {{action 'deleteAnimal' this}} class="delete_button">Delete animal</button>
-    </li>
-  {{/each}}
-</ul>
+</div>

@@ -12,23 +12,22 @@ test('Showing associated cuts', function () {
 test('Renders one cut', function () {
   visit('/cuts/1');
   andThen(function () {
-    var cut = find('#cut h1').text();
-    var expected_result = 'Details for Cut 1';
+    var cut = find('#cut h2').text();
+    var expected_result = 'We see you like the Rib eye cut!';
     equal(cut, expected_result, 'Expected: ' + expected_result + ' got: ' + cut);
   });
 });
 
 test('Visiting cut via primal cut page', function () {
-  visit('/primal_cuts/1').click('ul li:last a');
+  visit('/primal_cuts/1').click('table tr:last a');
   andThen(function () {
-    var cut = find("#cut h1").text();
-    var expected_result = "Details for Cut 2";
-    equal(cut, expected_result, 'Expected: ' + expected_result + ' got: ' + cut);
+    var cut = find(".back_to_pcut").length;
+    ok(cut == 1, 'Back to primal cut button not found');
   });
 });
 
 test('Should have a link back to primal cut', function () {
-  visit('/primal_cuts/1').click('ul li:last a');
+  visit('/primal_cuts/1').click('table tr:last a');
   andThen(function () {
     var back_link = find('a.back_to_pcut').text();
     var expected_result = "Back to primal cut";
