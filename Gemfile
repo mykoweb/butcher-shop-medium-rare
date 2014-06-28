@@ -33,4 +33,5 @@ end
 
 group :assets do
   gem 'coffee-rails'
+  gem 'uglifier'
 end

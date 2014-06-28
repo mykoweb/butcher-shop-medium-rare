@@ -169,6 +169,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.39)
+    uglifier (2.5.1)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
 
 PLATFORMS
   ruby
@@ -193,3 +196,4 @@ DEPENDENCIES
   shoulda-matchers
   strong_parameters
   teaspoon (= 0.7.9)
+  uglifier
