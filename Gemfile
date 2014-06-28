@@ -4,7 +4,7 @@ ruby '2.0.0'
 
 gem 'rails', '3.2.13'
 gem 'rails-api'
-gem 'sqlite3'
+gem 'pg'
 gem 'active_model_serializers'
 gem 'strong_parameters'
 
@@ -12,6 +12,9 @@ gem 'jquery-rails', '~> 3.0.0'
 
 gem 'ember-rails'
 gem 'ember-source', '1.5.0'
+
+# for Heroku
+gem 'rails_12factor', group: :production
 
 group :test, :development do
   gem 'rspec-rails'
