@@ -23,8 +23,6 @@ test('Visiting primal cut via animal page', function () {
   andThen(function () {
     var add_pcut = find("#add_new_cut").length;
     ok(add_pcut == 1, 'Add new cut button not found');
-    // var expected_result = "List of Cuts for Primal Cut Hind Leg";
-    // equal(pcut, expected_result, 'Expected: ' + expected_result + ' got: ' + pcut);
   });
 });
 

@@ -59,8 +59,8 @@ var resetFixtures = function () {
     { id: 1, first_name: 'Foo', last_name: 'Bar', email: 'foo@bar.com', favorites: [1,2] }
   ];
   ButcherShop.Favorite.FIXTURES = [
-    { id: 1, user_id: 1 },
-    { id: 2, user_id: 2 }
+    { id: 1, user: 1 },
+    { id: 2, user: 1 }
   ];
 };
 resetFixtures();
