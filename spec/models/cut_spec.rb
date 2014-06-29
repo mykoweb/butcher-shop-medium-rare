@@ -7,4 +7,5 @@ describe Cut do
 
   it { should belong_to :animal }
   it { should belong_to :primal_cut }
+  it { should belong_to :favorite }
 end
