@@ -10,4 +10,7 @@ ButcherShop.Router.map(function() {
   this.resource('cuts', function () {
     this.route('show', { path: '/:cut_id' });
   });
+  this.resource('users', function () {
+    this.route('show', { path: '/:user_id' });
+  });
 });

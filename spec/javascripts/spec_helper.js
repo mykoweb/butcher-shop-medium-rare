@@ -55,5 +55,8 @@ var resetFixtures = function () {
     { id: 1, name: 'Rib eye', animal: 1, primalCut: 1 },
     { id: 2, name: 'Pot roast', animal: 1, primalCut: 1 }
   ];
+  ButcherShop.User.FIXTURES = [
+    { id: 1, first_name: 'Foo', last_name: 'Bar', email: 'foo@bar.com', favorites: [] }
+  ];
 };
 resetFixtures();
