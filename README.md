@@ -2,6 +2,15 @@
 
 This is a sample API app for a butcher shop. It's broken and incomplete. Your job is to fix it and finish it.
 
+## Solution
+
+### Some notes
+
+* The Rails REST API supports the CRUD actions for the `User` and `Favorite` models. However, for simplicity the front-end Ember app was hardcoded to only perform read operations for these two models. Create, read, and delete actions can be performed for the other models, namely `Animal`, `PrimalCut`, and `Cut`.
+* It was noted that users can have many favorites and each favorite has only one cut of meat. However, since Ember-data does not support the `has_one` association and since the Ember router could not handle a JSON response for favorites that was constructed using `has_one`, I changed this association to `has_many`.
+* In addition to the Rspec specs, Javascript specs were written using JUnit and Teaspoon. In order to run the Teaspoon specs, you will need to have PhantomJS installed on your computer. Then, after running `bundle install`, execute the `teaspoon` command and you will see the tests running.
+* You can view the Butcher Shop App at http://protected-temple-2151.herokuapp.com.
+
 ## Tasks
 
 What we'd like you to do is the following:
