@@ -13,4 +13,7 @@ ButcherShop.Router.map(function() {
   this.resource('users', function () {
     this.route('show', { path: '/:user_id' });
   });
+  this.resource('favorites', function () {
+    this.route('show', { path: '/:favorite_id' });
+  });
 });

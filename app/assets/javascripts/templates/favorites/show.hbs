@@ -1,0 +1,12 @@
+<div id="favorite">
+  <h2>Favorite Cut: {{cut.name}}</h2>
+  <table class="cuts_list table table-striped"><tbody>
+    {{#each cut}}
+      <tr>
+        <td>{{#link-to 'cuts.show' this class="cut_name"}}{{name}}{{/link-to}}</td>
+        <td><button {{action 'deleteCut' this}} class="btn btn-warning delete_button">Delete cut</button></td>
+      </tr>
+    {{/each}}
+  </tbody></table>
+  <div class="back_to_user back_to_link">{{#link-to 'users.show' 1 class="back_to_user"}}Back to user{{/link-to}}</div>
+</div>

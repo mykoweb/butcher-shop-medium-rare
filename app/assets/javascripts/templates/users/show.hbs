@@ -1,3 +1,10 @@
 <div id="user">
   <h2>User: {{first_name}} {{last_name}}</h2>
+  <table class="cuts_list table table-striped"><tbody>
+    {{#each favorites}} 
+        <tr>
+          <td>Favorite ID: {{#link-to 'favorites.show' this}}{{id}}{{/link-to}}</td>
+        </tr>
+    {{/each}}
+  </tbody><table>
 </div>
