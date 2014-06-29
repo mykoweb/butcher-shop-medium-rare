@@ -4,6 +4,11 @@ class FavoritesController < ApplicationController
   before_filter :find_user, only:   [:index, :create]
   before_filter :find_fav,  except: [:index, :create]
 
+  def index
+    @favs = @user.favorites.all
+    respond_with @favs
+  end
+
   def create
     @fav = @user.favorites.create
     respond_with @fav

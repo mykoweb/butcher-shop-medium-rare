@@ -4,5 +4,5 @@ describe Favorite do
   it { should be_a_kind_of ActiveModel::ForbiddenAttributesProtection }
 
   it { should belong_to :user }
-  it { should have_one :cut }
+  it { should have_many :cuts }
 end

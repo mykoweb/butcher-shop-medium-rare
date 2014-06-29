@@ -1,0 +1,6 @@
+<div id="favorite">
+  {{#each cuts}}
+    <h2>Favorite Cut: {{name}}</h2>
+  {{/each}}
+  <div class="back_to_user back_to_link">{{#link-to 'users.show' 1 class="back_to_user"}}Back to user{{/link-to}}</div>
+</div>

@@ -17,3 +17,7 @@ test('individual animal', function () {
 test('individual primal cut', function () {
   routesTo('/primal_cuts/1', 'primal_cuts.show');
 });
+
+test('individual user', function () {
+  routesTo('/users/1', 'users.show');
+});
